@@ -63,6 +63,11 @@
       p_ruleset_file?.item(0)?.name ?? "/etc/systemd/wondershaper.conf";
   }
 
+  async function fn_ui_update_wondershaper_version() {
+    let ressa: string = await invoke("fn_get_wondershaper_version", {});
+    document.getElementById("id_wondershaper_version")?.setHTMLUnsafe(ressa);
+  }
+
   /*
   Apply Custom Set Variables to WonderShaper
   */
@@ -302,8 +307,17 @@
     <div id="id_status_dot" class="dot" style="background-color: red;"></div>
     <div>Statuc</div>
     <button>dev_refresh</button>
-    <div style="margin-right: 0; margin-left: auto;">Installed?</div>
-    <button style="visibility: show;">dev_refresh</button>
+    <div
+      style="margin-right: 0; margin-left: auto;"
+      id="id_wondershaper_version"
+    >
+      Installed version
+    </div>
+    <button
+      style="visibility: show;"
+      onclick={(e: Event) => fn_ui_update_wondershaper_version()}
+      >dev_refresh</button
+    >
   </div>
 </main>
 

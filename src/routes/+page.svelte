@@ -4,6 +4,8 @@
   import "./style.css";
   import { invoke } from "@tauri-apps/api/core";
 
+  import { onMount } from "svelte";
+
   // when using `"withGlobalTauri": true`, you may use
   // const { getCurrentWindow } = window.__TAURI__.window;
   const appWindow = getCurrentWindow();
@@ -76,6 +78,11 @@
     console.log("Hellow");
     invoke("fn_lib_cmd_fireup", {});
   }
+
+  onMount(async () => {
+    await fn_ui_update_wondershaper_version();
+  });
+
 </script>
 
 <main style="background: var(--bg-color); height: 75vh; padding-top: 25vh;">

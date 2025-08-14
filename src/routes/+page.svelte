@@ -29,7 +29,7 @@
   const file = new File(
     ["/etc/systemd/wondershaper.conf"],
     "/etc/systemd/wondershaper.conf",
-    { type: "file" }
+    { type: "file" },
   );
   const dataTransfer = new DataTransfer();
   dataTransfer.items.add(file);
@@ -65,9 +65,21 @@
       p_ruleset_file?.item(0)?.name ?? "/etc/systemd/wondershaper.conf";
   }
 
+  /*
+  
+  */
   async function fn_ui_update_wondershaper_version() {
     let ressa: string = await invoke("fn_get_wondershaper_version", {});
     document.getElementById("id_wondershaper_version")?.setHTMLUnsafe(ressa);
+  }
+
+  /*
+  
+  */
+  async function fn_ui_update_active_interface() {
+    let ressas: string = await invoke("fn_get_active_interface", {});
+    // Update Selected Internet Interface
+    p_interface_value = ressas;
   }
 
   /*
@@ -75,14 +87,13 @@
   */
   function fn_apply_set_rules() {
     document.getElementById("id_button_fireup")?.setAttribute("disabled", "");
-    console.log("Hellow");
     invoke("fn_lib_cmd_fireup", {});
   }
 
   onMount(async () => {
+    await fn_ui_update_active_interface();
     await fn_ui_update_wondershaper_version();
   });
-
 </script>
 
 <main style="background: var(--bg-color); height: 75vh; padding-top: 25vh;">
@@ -313,7 +324,8 @@
     <!-- Main Bottom Bar -->
     <div id="id_status_dot" class="dot" style="background-color: red;"></div>
     <div>Statuc</div>
-    <button>dev_refresh</button>
+    <button onclick={(e) => fn_ui_update_active_interface()}>dev_refresh</button
+    >
     <div
       style="margin-right: 0; margin-left: auto;"
       id="id_wondershaper_version"

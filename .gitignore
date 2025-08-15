@@ -11,3 +11,4 @@ vite.config.ts.timestamp-*
 deno.lock
 /src-tauri/Cargo.lock
 src-tauri/Cargo.lock
+/.vscode

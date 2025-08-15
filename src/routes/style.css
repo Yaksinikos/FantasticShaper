@@ -150,3 +150,10 @@
   margin: 4px 2px;
   transition-duration: 0.4s; /* Übergangseffekt beim Hover */
 }
+
+.visible{
+}
+
+.hidden{
+  display: none;
+}

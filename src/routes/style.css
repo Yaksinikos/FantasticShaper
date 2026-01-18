@@ -143,7 +143,7 @@
   border: none; /* Kein Rand */
   border-radius: 5px; /* Abgerundete Ecken */
   cursor: pointer; /* Mauszeiger als Hand */
-  font-size: 16px; /* Schriftgröße */ 
+  font-size: 16px; /* Schriftgröße */
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -151,9 +151,8 @@
   transition-duration: 0.4s; /* Übergangseffekt beim Hover */
 }
 
-.visible{
-}
+.visible {}
 
-.hidden{
+.hidden {
   display: none;
 }

@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "allowJs": true,
     "lib": ["deno.window"],
     "strict": true
   },
@@ -10,9 +9,7 @@
     }
   },
   "fmt": {
-    "files": {
-      "include": ["src/", "*.ts", "*.js", "*.svelte"]
-    }
+    "include": ["src/", "*.ts", "*.js", "*.svelte"]
   },
   "tasks": {
     "dev": "npm run dev",
@@ -23,8 +20,8 @@
     "test:run": "npm run test:run",
     "check": "npm run check",
     "check:watch": "npm run check:watch",
-    "lint": "npm run lint",
-    "lint:fix": "npm run lint:fix",
+    "lint": "deno lint",
+    "lint:fix": "deno lint --fix",
     "tauri": "npm run tauri"
   }
 }

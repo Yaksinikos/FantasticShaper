@@ -1,1 +1,38 @@
+# Block specific directory
+/secrets/**
+/private/**
+!/private/public-config.json
+
+# Block all certificate files
+*.crt              # All certificate files
+*.key              # All private keys
+*.pem              # All PEM files
+*-secret.json      # Files ending with "-secret.json"
+
+# Block sensitive files
+*-secret.json
+temp*.log
+.env*
+.env
+*.env
+id_rsa
+id_ed25519
+secrets.json
+credentials.json
+api-keys.json
+
+# Block environment files
+.env*
+
+# Allow exception with negation
+!config.local.json
+
 /.vscode
+
+# Block directories anywhere
+**/node_modules/**
+**/dist/**
+**/build/**
+**/.cache/**
+
+**/target/**        # Block target directory

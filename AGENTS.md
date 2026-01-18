@@ -29,6 +29,21 @@ FantasticShaper is a Tauri-based Linux Desktop GUI for WonderShaper network traf
 - **Backend Macro Crate**: tauri-macros
 - **Backend Utils Crate**: tauri-utils
 
+## File Organization
+- first: Project: Follow Tauri Project Structure Guidelines
+- second: Backend: Follow Cargo Project Structure Guidelines
+- third: Frontend: Follow Svelte Project Structure Guidelines
+
+### Directory Structure
+
+### Configuration Files
+- `package.json` - dependencies and scripts (orchestrated by Deno tasks)
+- `deno.json` - Deno configuration and tasks
+- `deno.lock` - Deno dependency lock
+- `svelte.config.js` - SvelteKit configuration with static adapter
+- `vite.config.js` - Vite build configuration
+- `tsconfig.json` - TypeScript strict mode enabled
+
 ## Build & Development Commands
 
 ### Primary Development
@@ -166,18 +181,6 @@ background-color: var(--bg-color);
 color: var(--text-color);
 border-color: var(--border-color);
 ```
-
-## File Organization
-
-### Directory Structure
-
-### Configuration Files
-- `package.json` - dependencies and scripts (orchestrated by Deno tasks)
-- `deno.json` - Deno configuration and tasks
-- `deno.lock` - Deno dependency lock
-- `svelte.config.js` - SvelteKit configuration with static adapter
-- `vite.config.js` - Vite build configuration
-- `tsconfig.json` - TypeScript strict mode enabled
 
 ## Testing & Quality Assurance
 

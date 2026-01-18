@@ -3,6 +3,10 @@
     "lib": ["deno.window"],
     "strict": true
   },
+  "exclude": [
+    ".svelte-kit",
+    "src-tauri"
+  ],
   "lint": {
     "rules": {
       "tags": ["recommended"]

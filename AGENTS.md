@@ -176,25 +176,10 @@ src-tauri/              # Rust backend
 ## Testing & Quality Assurance
 
 ### Current State
-- **No automated tests** configured
-- **No linting tools** (ESLint, Prettier, rustfmt) set up
+- **Linting tools** ESLint, Clippy, rustfmt
+- **Testing tools** Vitest
 - Manual testing through development workflow
 - Rust lints configured in Cargo.toml (unsafe_code forbidden, clippy warnings)
-
-### Recommendations
-Consider adding:
-```json
-// to package.json devDependencies
-"eslint": "^8.0.0",
-"prettier": "^3.0.0",
-"vitest": "^1.0.0"
-```
-
-And Rust tooling in `src-tauri/Cargo.toml`:
-```toml
-[dev-dependencies]
-rustfmt = "1.0"
-```
 
 ## Special Notes
 

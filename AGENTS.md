@@ -4,7 +4,7 @@
 FantasticShaper is a Tauri-based Linux Desktop GUI for WonderShaper network traffic shaping tool.
 - **Frontend Language**: TypeScript
 - **Frontend UI Framework**: SvelteKit 5+
-- **Frontend Runtime**: Deno 2.6+
+- **Frontend Runtime**: Deno 2.6+ (orchestrator for npm tools)
 - **Frontend Build Tool**: Vite 7.3+
 - **Frontend Server**: Vite 7.3+
 - **Backend Language**: Rust 2024
@@ -19,23 +19,29 @@ FantasticShaper is a Tauri-based Linux Desktop GUI for WonderShaper network traf
 ```bash
 # Start development server (frontend + Tauri)
 deno task dev           # Starts SvelteKit dev server on localhost:1420
-deno run tauri dev       # Starts Tauri in development mode
+deno task tauri dev      # Starts Tauri in development mode
 
 # Production Build
 deno task build         # Build SvelteKit frontend to ./build
-deno run tauri build     # Build complete Tauri application
+deno task tauri build     # Build complete Tauri application
 
 # Preview Production Build
-deno run preview         # Preview built SvelteKit app
+deno task preview         # Preview built SvelteKit app
 
 # Tauri Commands
-deno run tauri <command>  # Access any Tauri CLI command
+deno task tauri <command>  # Access any Tauri CLI command
 ```
+
+### Note on Tooling Approach
+This project uses a **Deno-first architecture** with npm packages:
+- `deno task` is the primary command interface
+- Deno orchestrates npm-based tools (Vitest, ESLint, etc.)
+- Dependencies managed via `deno install` but tools use npm conventions
 
 ### Type Checking & Validation
 ```bash
-deno run check           # Run SvelteKit type checking once
-deno run check:watch     # Run type checking in watch mode
+deno task check           # Run SvelteKit type checking once
+deno task check:watch     # Run type checking in watch mode
 
 # Rust linting (if configured)
 cd src-tauri && cargo clippy   # Rust linter
@@ -43,16 +49,16 @@ cd src-tauri && cargo fmt       # Rust formatter (check)
 cd src-tauri && cargo fmt --all # Rust formatter (write)
 
 # Frontend linting (ESLint)
-npm run lint             # Run ESLint on all files
-npm run lint:fix          # Run ESLint with auto-fix
+deno task lint          # Run ESLint on all files
+deno task lint:fix       # Run ESLint with auto-fix
 ```
 
 ### Testing Commands
 ```bash
 # Frontend Tests (Vitest + Testing Library)
-npm test                  # Run all tests in watch mode
-npm run test:run         # Run tests once
-npm run test:ui          # Run tests with UI interface
+deno task test           # Run all tests in watch mode
+deno task test:run       # Run tests once
+deno task test:ui        # Run tests with UI interface
 
 # Rust tests (if added)
 cd src-tauri && cargo test          # Run all Rust tests
@@ -177,7 +183,7 @@ src-tauri/              # Rust backend
 ```
 
 ### Configuration Files
-- `package.json` - npm dependencies and scripts
+- `package.json` - npm dependencies and scripts (orchestrated by Deno tasks)
 - `deno.json` - Deno configuration and tasks
 - `deno.lock` - Deno dependency lock (used alongside npm)
 - `svelte.config.js` - SvelteKit configuration with static adapter
@@ -213,11 +219,11 @@ src-tauri/              # Rust backend
 
 ## Development Workflow
 1. Start with `deno task dev`
-2. Run `deno run tauri dev` for full application
-3. Type check with `npm run check` before commits
-4. Run linting with `npm run lint` before commits
-5. Run tests with `npm run test:run` before commits
-6. Build with `deno task build` + `deno run tauri build` for release
+2. Run `deno task tauri dev` for full application
+3. Type check with `deno task check` before commits
+4. Run linting with `deno task lint` before commits
+5. Run tests with `deno task test:run` before commits
+6. Build with `deno task build` + `deno task tauri build` for release
 
 ## Version Control
 - Do not commit changes in git

@@ -9,13 +9,20 @@
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:run": "vitest run",
+    "lint": "eslint . --ext ts,tsx,js,jsx,svelte",
+    "lint:fix": "eslint . --ext ts,tsx,js,jsx,svelte --fix",
     "tauri": "tauri"
   },
   "license": "MIT",
   "dependencies": {
     "@tauri-apps/api": "^2.9.1",
     "@tauri-apps/plugin-opener": "^2.5.3",
-    "@tauri-apps/plugin-shell": "^2.3.4"
+    "@tauri-apps/plugin-shell": "^2.3.4",
+    "@types/node": "^25.0.9",
+    "svelte-parser": "^3.1.2"
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "^3.0.10",
@@ -27,6 +34,14 @@
     "vite": "^7.3.1",
     "@tauri-apps/cli": "^2.9.6",
     "eslint": "^9.39.2",
-    "vitest": "^4.0.17"
+    "vitest": "^4.0.17",
+    "@testing-library/svelte": "^5.1.0",
+    "@testing-library/jest-dom": "^6.5.0",
+    "jsdom": "^25.0.0",
+    "@eslint/js": "^9.39.2",
+    "eslint-plugin-svelte": "^2.44.0",
+    "@typescript-eslint/eslint-plugin": "^8.15.0",
+    "@typescript-eslint/parser": "^8.15.0",
+    "globals": "^15.12.0"
   }
 }

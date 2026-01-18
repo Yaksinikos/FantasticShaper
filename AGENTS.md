@@ -11,6 +11,7 @@ FantasticShaper is a Tauri-based Linux Desktop GUI for WonderShaper network traf
 - **Rust Build System**: Cargo
 - **Backend ToolKit**: Tauri 2+
 - **Target**: Linux Cross-Distribution (Primary Arch-Linux)
+- **Version Control**: Git
 
 ## Build & Development Commands
 
@@ -40,13 +41,18 @@ deno run check:watch     # Run type checking in watch mode
 cd src-tauri && cargo clippy   # Rust linter
 cd src-tauri && cargo fmt       # Rust formatter (check)
 cd src-tauri && cargo fmt --all # Rust formatter (write)
+
+# Frontend linting (ESLint)
+npm run lint             # Run ESLint on all files
+npm run lint:fix          # Run ESLint with auto-fix
 ```
 
 ### Testing Commands
 ```bash
-# No test framework currently configured
-# To add tests, consider adding vitest:
-# npm install --save-dev vitest @vitest/ui
+# Frontend Tests (Vitest + Testing Library)
+npm test                  # Run all tests in watch mode
+npm run test:run         # Run tests once
+npm run test:ui          # Run tests with UI interface
 
 # Rust tests (if added)
 cd src-tauri && cargo test          # Run all Rust tests
@@ -156,6 +162,10 @@ src/                    # SvelteKit frontend
 │   ├── +page.svelte   # Main application page
 │   ├── +layout.svelte # Root layout
 │   └── style.css      # Global styles
+├── test/              # Test files and setup
+│   ├── setup.ts       # Vitest global setup
+│   ├── Counter.svelte # Example component for testing
+│   └── Counter.test.ts # Example test file
 └── app.html           # HTML template
 
 src-tauri/              # Rust backend
@@ -167,10 +177,13 @@ src-tauri/              # Rust backend
 ```
 
 ### Configuration Files
-- `package.json` - deno dependencies and scripts
+- `package.json` - npm dependencies and scripts
+- `deno.json` - Deno configuration and tasks
 - `deno.lock` - Deno dependency lock (used alongside npm)
 - `svelte.config.js` - SvelteKit configuration with static adapter
 - `vite.config.js` - Vite build configuration
+- `vitest.config.ts` - Vitest testing configuration
+- `eslint.config.js` - ESLint linting configuration
 - `tsconfig.json` - TypeScript strict mode enabled
 
 ## Testing & Quality Assurance
@@ -201,5 +214,10 @@ src-tauri/              # Rust backend
 ## Development Workflow
 1. Start with `deno task dev`
 2. Run `deno run tauri dev` for full application
-3. Type check with `deno run check` before commits
-4. Build with `deno task build` + `deno run tauri build` for release
+3. Type check with `npm run check` before commits
+4. Run linting with `npm run lint` before commits
+5. Run tests with `npm run test:run` before commits
+6. Build with `deno task build` + `deno run tauri build` for release
+
+## Version Control
+- Do not commit changes in git

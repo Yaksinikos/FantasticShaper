@@ -1,3 +1,6 @@
+# Global Rule
+Always be extremely concise. Sacrifice grammar for the sake of concision.
+
 # FantasticShaper - Development Guide for AI Agents
 
 ## Project Overview

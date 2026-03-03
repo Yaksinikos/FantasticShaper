@@ -1,5 +1,5 @@
 <script lang="ts">
-  import "./style.css";
+  import "./page.css";
   import { getCurrentWindow } from "@tauri-apps/api/window";
   import { invoke } from "@tauri-apps/api/core";
   import { onMount } from "svelte";
@@ -56,9 +56,7 @@
   // document
   //   .getElementById("titlebar-maximize")
   //   ?.addEventListener("click", () => appWindow.toggleMaximize());
-  document
-    .getElementById("titlebar-close")
-    ?.addEventListener("click", () => appWindow.close());
+  document.getElementById("titlebar-close")?.addEventListener("click", () => appWindow.close());
 
   /**
    * GUI Initialization Functions
@@ -75,11 +73,9 @@
   let p_upload_use: boolean;
   let p_upload_value: number;
 
-  const file = new File(
-    ["/etc/systemd/wondershaper.conf"],
-    "/etc/systemd/wondershaper.conf",
-    { type: "file" },
-  );
+  const file = new File(["/etc/systemd/wondershaper.conf"], "/etc/systemd/wondershaper.conf", {
+    type: "file",
+  });
   const dataTransfer = new DataTransfer();
   dataTransfer.items.add(file);
   const fileList = dataTransfer.files;
@@ -144,13 +140,9 @@
    */
   function fn_ui_show_custom_interface_input(value: boolean) {
     if (value == true) {
-      document
-        .getElementById("id_ui_custom_interface")
-        ?.classList.remove("hidden");
+      document.getElementById("id_ui_custom_interface")?.classList.remove("hidden");
     } else {
-      document
-        .getElementById("id_ui_custom_interface")
-        ?.classList.add("hidden");
+      document.getElementById("id_ui_custom_interface")?.classList.add("hidden");
     }
   }
 
@@ -215,12 +207,8 @@
                 }}
               >
                 <option class="option_style" value="lo">lo (Loopback) </option>
-                <option class="option_style" value="eth0" selected
-                  >eth0 (Legacy Ethernet)
-                </option>
-                <option class="option_style" value="enp0s31f6"
-                  >enp0s31f6 (Ethernet)
-                </option>
+                <option class="option_style" value="eth0" selected>eth0 (Legacy Ethernet) </option>
+                <option class="option_style" value="enp0s31f6">enp0s31f6 (Ethernet) </option>
                 <option class="option_style" value="wlan0"
                   >wlan0 (Legacy Wireless Local Area Network)
                 </option>
@@ -424,18 +412,12 @@
     <!-- Main Bottom Bar -->
     <div id="id_status_dot" class="dot" style="background-color: red;"></div>
     <div>Statuc</div>
-    <button onclick={(e) => fn_ui_update_active_interface()}>dev_refresh</button
-    >
+    <button onclick={(e) => fn_ui_update_active_interface()}>dev_refresh</button>
 
-    <div
-      style="margin-right: 0; margin-left: auto;"
-      id="id_wondershaper_version"
-    >
+    <div style="margin-right: 0; margin-left: auto;" id="id_wondershaper_version">
       Installed version
     </div>
-    <button
-      style="visibility: show;"
-      onclick={(e: Event) => fn_ui_update_wondershaper_version()}
+    <button style="visibility: show;" onclick={(e: Event) => fn_ui_update_wondershaper_version()}
       >dev_refresh</button
     >
   </div>

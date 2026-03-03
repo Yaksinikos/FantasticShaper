@@ -1,5 +1,6 @@
-# FantasticShaper
-FantasticShaper is a Tauri GUI for WonderShaper
+# FantastiqShape
+
+FantastiqShape is a Tauri GUI for WonderShaper
 
 # Tauri + SvelteKit + TypeScript
 

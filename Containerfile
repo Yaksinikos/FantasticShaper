@@ -8,5 +8,5 @@ RUN deno task tauri build --no-bundle
 
 # Stage 2: Final image
 FROM scratch
-COPY --from=builder /app/scr-tauri/target/release/x86_64-unknown-linux-musl/release/fantasticshaper /app/
-ENTRYPOINT ["/app/fantasticshaper"]
+COPY --from=builder /app/scr-tauri/target/release/x86_64-unknown-linux-musl/release/fantastiqshape /app/
+ENTRYPOINT ["/app/fantastiqshape"]

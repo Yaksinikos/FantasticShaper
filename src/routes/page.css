@@ -151,7 +151,8 @@
   transition-duration: 0.4s; /* Übergangseffekt beim Hover */
 }
 
-.visible {}
+.visible {
+}
 
 .hidden {
   display: none;

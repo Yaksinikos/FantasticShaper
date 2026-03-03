@@ -1,8 +1,8 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "fantasticshaper",
+  "productName": "fantastiqshape",
   "version": "0.1.0",
-  "identifier": "com.fantasticshaper.app",
+  "identifier": "com.fantastiqshape.app",
   "build": {
     "beforeDevCommand": "deno task dev",
     "devUrl": "http://localhost:1420",
@@ -12,7 +12,7 @@
   "app": {
     "windows": [
       {
-        "title": "fantasticshaper",
+        "title": "fantastiqshape",
         "width": 600,
         "height": 400,
         "decorations": false,
